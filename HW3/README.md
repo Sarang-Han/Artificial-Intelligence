@@ -17,3 +17,12 @@
 - [ ] 연산량 및 번역 성능 관점에서 가장 효율적인 모델 논의
 - [ ] 모델 크기 및 번역 성능 관점에서 가장 효율적인 모델 논의
 - [ ] 학습 시간 및 번역 성능 관점에서 가장 효율적인 모델 논의
+
+### TODO
+
+- [x] LSTM baseline
+- [ ] Attention on LSTM - Attention
+- [ ] Attention on LSTM - AttnDecoder
+- [ ] Transformer - TransformerModel
+- [ ] Colab 전체 학습 완료
+- [ ] 레포트 완성 및 제출
