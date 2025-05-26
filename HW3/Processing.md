@@ -44,17 +44,6 @@
     - `<unk>`: 어휘에 없는 어떤 문자 조합이든 이걸로 처리됨
 - 요즘은 서브워드 단위를 선호함 (예: BPE, WordPiece, Unigram) → 처음 보는 단어도 유의미한 조각으로 쪼갤 수 있음
 
-예:
-- internationalization (어휘에 없음) → international + ##ization (둘 다 어휘에 있음)
-- 모델이 의미 있는 부분들을 여전히 볼 수 있고, 어휘 크기도 적당하게 유지 가능
-- 왜 단어 단위 대신 서브워드?
-- 오픈 어휘(Open-vocabulary): 처음 보는 단어도 철자 단위로 표현 가능
-- 어휘 크기를 작게 유지 → 임베딩 행렬을 메모리에 올릴 수 있음
-- 트레이너는 특수 토큰들의 ID를 명시적으로 지정함
-- `<pad>`, `<unk>`, `<s>` (문장 시작), `</s>` (문장 끝)
-- 모델이 이 ID들이 정확히 어떤 숫자인지 알아야 하기 때문
-- 나중에 이걸 바꾸면 훈련이 조용히 망가질 수 있음
-
 <br>
 
 ## 5. 런타임 토크나이저 설정
@@ -98,3 +87,83 @@
 → LSTM이나 Transformer 모델에 곧바로 투입 가능
 
 <br>
+
+---
+
+## SentencePieceTrainer란?
+
+- `SentencePieceTrainer`는 문장 → 숫자 토큰 시퀀스로 바꿔주는 사전을 자동으로 만들어주는 도구
+- 딥러닝 자연어처리에서 필수적인 전처리 단계
+
+### 어떻게 작동하는가?
+
+1. 입력
+    - 영어와 프랑스어 문장이 각각 한 줄씩 들어있는 텍스트 파일을 줍니다.
+2. 서브워드 분할
+    - 단어 단위가 아니라, 더 작은 조각(서브워드) 단위로 쪼갭니다.
+    - 예시:
+        - internationalization → international + ization
+        - 처음 보는 단어도 조각으로 쪼개서 어느 정도 의미를 파악할 수 있게 함
+3. 토큰 사전 만들기
+    - 자주 나오는 조각(서브워드)들을 뽑아서 각각에 **고유한 번호(ID)**를 붙입니다.
+    - 예를 들어,
+        - "in" → 5
+        - "ter" → 23
+        - "##ation" → 102
+        - 이런 식으로 번호를 붙임
+4. 특수 토큰 지정
+    - `<pad>`, `<unk>`, `<s>`, `</s>` 같은 특별한 토큰(패딩, 모르는 단어, 문장 시작/끝)도 반드시 고정된 번호로 지정해줍니다.
+5. 결과물
+    - 이렇게 만들어진 `bpe.model` 파일이 나중에 문장을 숫자 토큰 시퀀스로 바꿔주는 데 사용됩니다.
+
+### 사용 예시
+
+```python
+import sentencepiece as spm
+
+spm.SentencePieceTrainer.Train(
+    input='train.en,train.fr',   # 입력 파일(영어, 프랑스어)
+    model_prefix='bpe',          # 결과 파일 이름(bpe.model, bpe.vocab)
+    vocab_size=4000,             # 만들 토큰(조각) 개수
+    pad_id=0, pad_piece='<pad>', # 패딩 토큰과 번호
+    unk_id=1, unk_piece='<unk>', # 모르는 단어 토큰과 번호
+    bos_id=2, bos_piece='<s>',   # 문장 시작 토큰과 번호
+    eos_id=3, eos_piece='</s>',  # 문장 끝 토큰과 번호
+    model_type='bpe'             # BPE 방식 사용
+)
+```
+
+<br>
+
+## SentencePieceProcessor란?
+
+- 앞서 만든 `bpe.model` (토큰 사전)을 실제로 사용(번역)할 때 쓰는 도구
+- 문장(글자)를 숫자 토큰(정수 ID)로 바꿔주는 역할
+
+**훈련 단계**:
+- `SentencePieceTrainer` → `bpe.model`(사전) 생성
+
+**실전/추론 단계**:
+- `SentencePieceProcessor`로 bpe.model을 참고하여 입력 문장 → 숫자 토큰(ID) 시퀀스로 변환
+
+### 주요 기능
+
+- `encode(str)`
+→ 문장(예: "I love AI")을 숫자 ID 리스트(예: [12, 45, 78, 3])로 바꿈
+
+- 특수 토큰 ID
+→ `<pad>`, `<unk>`, `<s>`, `</s>` 같은 특별한 토큰들의 번호(ID)를 알려줌
+
+- 전체 어휘 크기
+→ 사전에 등록된 토큰(조각)의 총 개수를 알려줌
+
+## (src, tgt) 쌍을 encode()로 토크나이즈한다는 뜻?
+
+- src: source(원문, 여기선 영어 문장)
+- tgt: target(목표, 여기선 프랑스어 문장)
+
+=> 각 배치마다 (en, fr) 문장 쌍을 `encode()` 함수에 넣어서 숫자 토큰 시퀀스로 바꾼다는 뜻
+
+예시:
+- "I am a student." → [12, 45, 78, 3]
+- "Je suis étudiant." → [21, 33, 99, 3]
