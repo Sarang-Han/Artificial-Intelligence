@@ -21,8 +21,8 @@
 ## TODO
 
 - [x] LSTM baseline
-- [ ] Attention on LSTM - Attention
-- [ ] Attention on LSTM - AttnDecoder
-- [ ] Transformer - TransformerModel
+- [x] Attention on LSTM - Attention
+- [x] Attention on LSTM - AttnDecoder
+- [x] Transformer - TransformerModel
 - [ ] Colab 전체 학습 완료
 - [ ] 레포트 완성 및 제출
