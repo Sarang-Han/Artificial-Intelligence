@@ -41,10 +41,6 @@ Estimated Total Size (MB): 134.97
 ==========================================================================================
 ```
 
-LSTM Translation Result:
-▶︎ A person is wearing a hat.
-   → itablement que c'est un peu
-
 
 # LSTM with Attention
 
@@ -175,9 +171,6 @@ Estimated Total Size (MB): 139.52
 ==========================================================================================
 ```
 
-LSTM with Attention Translation Result:
-▶︎ A person is wearing a hat.
-   → personne ne s'est mis un pied.
 
 # Transformer
 
@@ -215,7 +208,3 @@ Params size (MB): 83.67
 Estimated Total Size (MB): 92.08
 ===============================================================================================
 ```
-
-Transformer Translation Result:
-▶︎ A person is wearing a hat.
-   → mons un chapitre.
