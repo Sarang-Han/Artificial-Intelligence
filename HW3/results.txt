@@ -1,0 +1,422 @@
+# LSTM
+
+```
+[batch    1/391] loss=8.298
+[batch   50/391] loss=6.644
+[batch  100/391] loss=6.173
+[batch  150/391] loss=5.843
+[batch  200/391] loss=5.685
+[batch  250/391] loss=5.529
+[batch  300/391] loss=5.457
+[batch  350/391] loss=5.308
+Epoch 1: Train loss=5.876, Val loss=5.287, Val ppl=197.844
+[batch    1/391] loss=5.281
+[batch   50/391] loss=5.241
+[batch  100/391] loss=5.072
+[batch  150/391] loss=4.937
+[batch  200/391] loss=5.023
+[batch  250/391] loss=4.990
+[batch  300/391] loss=4.797
+[batch  350/391] loss=4.790
+Epoch 2: Train loss=5.006, Val loss=4.825, Val ppl=124.604
+[batch    1/391] loss=4.768
+[batch   50/391] loss=4.788
+[batch  100/391] loss=4.684
+[batch  150/391] loss=4.736
+[batch  200/391] loss=4.689
+[batch  250/391] loss=4.691
+[batch  300/391] loss=4.616
+[batch  350/391] loss=4.597
+Epoch 3: Train loss=4.703, Val loss=4.591, Val ppl=98.611
+[batch    1/391] loss=4.517
+[batch   50/391] loss=4.518
+[batch  100/391] loss=4.557
+[batch  150/391] loss=4.566
+[batch  200/391] loss=4.542
+[batch  250/391] loss=4.470
+[batch  300/391] loss=4.474
+[batch  350/391] loss=4.406
+Epoch 4: Train loss=4.520, Val loss=4.453, Val ppl=85.903
+[batch    1/391] loss=4.427
+[batch   50/391] loss=4.439
+[batch  100/391] loss=4.409
+[batch  150/391] loss=4.338
+[batch  200/391] loss=4.492
+[batch  250/391] loss=4.374
+[batch  300/391] loss=4.365
+[batch  350/391] loss=4.276
+Epoch 5: Train loss=4.386, Val loss=4.350, Val ppl=77.446
+[batch    1/391] loss=4.335
+[batch   50/391] loss=4.258
+[batch  100/391] loss=4.284
+[batch  150/391] loss=4.350
+[batch  200/391] loss=4.246
+[batch  250/391] loss=4.270
+[batch  300/391] loss=4.188
+[batch  350/391] loss=4.253
+Epoch 6: Train loss=4.257, Val loss=4.283, Val ppl=72.458
+[batch    1/391] loss=4.275
+[batch   50/391] loss=4.161
+[batch  100/391] loss=4.238
+[batch  150/391] loss=4.168
+[batch  200/391] loss=4.190
+[batch  250/391] loss=4.200
+[batch  300/391] loss=4.133
+[batch  350/391] loss=4.225
+Epoch 7: Train loss=4.191, Val loss=4.234, Val ppl=69.014
+[batch    1/391] loss=4.229
+[batch   50/391] loss=4.164
+[batch  100/391] loss=4.193
+[batch  150/391] loss=4.189
+[batch  200/391] loss=4.096
+[batch  250/391] loss=4.161
+[batch  300/391] loss=4.030
+[batch  350/391] loss=4.155
+Epoch 8: Train loss=4.137, Val loss=4.208, Val ppl=67.229
+[batch    1/391] loss=4.084
+[batch   50/391] loss=4.145
+[batch  100/391] loss=4.106
+[batch  150/391] loss=4.130
+[batch  200/391] loss=4.069
+[batch  250/391] loss=4.114
+[batch  300/391] loss=4.116
+[batch  350/391] loss=4.143
+Epoch 9: Train loss=4.090, Val loss=4.176, Val ppl=65.073
+[batch    1/391] loss=4.002
+[batch   50/391] loss=4.018
+[batch  100/391] loss=3.985
+[batch  150/391] loss=3.940
+[batch  200/391] loss=4.083
+[batch  250/391] loss=4.052
+[batch  300/391] loss=4.110
+[batch  350/391] loss=4.076
+Epoch 10: Train loss=4.047, Val loss=4.150, Val ppl=63.418
+[batch    1/391] loss=4.084
+[batch   50/391] loss=3.928
+[batch  100/391] loss=3.931
+[batch  150/391] loss=4.052
+[batch  200/391] loss=3.962
+[batch  250/391] loss=3.929
+[batch  300/391] loss=3.932
+[batch  350/391] loss=4.067
+Epoch 11: Train loss=3.990, Val loss=4.130, Val ppl=62.152
+[batch    1/391] loss=3.970
+[batch   50/391] loss=3.904
+[batch  100/391] loss=3.956
+[batch  150/391] loss=3.978
+[batch  200/391] loss=3.958
+[batch  250/391] loss=3.948
+[batch  300/391] loss=3.965
+[batch  350/391] loss=4.001
+Epoch 12: Train loss=3.962, Val loss=4.111, Val ppl=61.024
+[batch    1/391] loss=3.895
+[batch   50/391] loss=3.952
+[batch  100/391] loss=3.911
+[batch  150/391] loss=3.853
+[batch  200/391] loss=3.918
+[batch  250/391] loss=3.908
+[batch  300/391] loss=4.013
+[batch  350/391] loss=3.914
+Epoch 13: Train loss=3.940, Val loss=4.105, Val ppl=60.661
+[batch    1/391] loss=3.879
+[batch   50/391] loss=3.908
+[batch  100/391] loss=3.803
+[batch  150/391] loss=3.862
+[batch  200/391] loss=3.924
+[batch  250/391] loss=3.849
+[batch  300/391] loss=3.935
+[batch  350/391] loss=3.929
+Epoch 14: Train loss=3.917, Val loss=4.089, Val ppl=59.678
+[batch    1/391] loss=3.924
+[batch   50/391] loss=3.883
+[batch  100/391] loss=3.913
+[batch  150/391] loss=3.852
+[batch  200/391] loss=3.864
+[batch  250/391] loss=3.877
+[batch  300/391] loss=3.814
+[batch  350/391] loss=3.830
+Epoch 15: Train loss=3.896, Val loss=4.081, Val ppl=59.200
+[LSTM] Wall-clock training time :  81.06 min
+```
+
+# LSTM on Attention
+
+```
+[batch    1/391] loss=8.296
+[batch   50/391] loss=5.908
+[batch  100/391] loss=5.381
+[batch  150/391] loss=4.963
+[batch  200/391] loss=4.780
+[batch  250/391] loss=4.584
+[batch  300/391] loss=4.522
+[batch  350/391] loss=4.387
+Epoch 1: Train loss=5.021, Val loss=4.330, Val ppl=75.951
+[batch    1/391] loss=4.247
+[batch   50/391] loss=4.206
+[batch  100/391] loss=4.169
+[batch  150/391] loss=4.082
+[batch  200/391] loss=4.128
+[batch  250/391] loss=4.078
+[batch  300/391] loss=3.922
+[batch  350/391] loss=3.980
+Epoch 2: Train loss=4.099, Val loss=3.904, Val ppl=49.598
+[batch    1/391] loss=3.866
+[batch   50/391] loss=3.847
+[batch  100/391] loss=3.742
+[batch  150/391] loss=3.867
+[batch  200/391] loss=3.811
+[batch  250/391] loss=3.824
+[batch  300/391] loss=3.779
+[batch  350/391] loss=3.765
+Epoch 3: Train loss=3.787, Val loss=3.702, Val ppl=40.522
+[batch    1/391] loss=3.623
+[batch   50/391] loss=3.579
+[batch  100/391] loss=3.584
+[batch  150/391] loss=3.670
+[batch  200/391] loss=3.492
+[batch  250/391] loss=3.569
+[batch  300/391] loss=3.520
+[batch  350/391] loss=3.578
+Epoch 4: Train loss=3.587, Val loss=3.552, Val ppl=34.883
+[batch    1/391] loss=3.502
+[batch   50/391] loss=3.445
+[batch  100/391] loss=3.447
+[batch  150/391] loss=3.477
+[batch  200/391] loss=3.453
+[batch  250/391] loss=3.448
+[batch  300/391] loss=3.402
+[batch  350/391] loss=3.474
+Epoch 5: Train loss=3.435, Val loss=3.449, Val ppl=31.471
+[batch    1/391] loss=3.339
+[batch   50/391] loss=3.377
+[batch  100/391] loss=3.331
+[batch  150/391] loss=3.280
+[batch  200/391] loss=3.208
+[batch  250/391] loss=3.347
+[batch  300/391] loss=3.397
+[batch  350/391] loss=3.185
+Epoch 6: Train loss=3.298, Val loss=3.335, Val ppl=28.066
+[batch    1/391] loss=3.099
+[batch   50/391] loss=3.151
+[batch  100/391] loss=3.143
+[batch  150/391] loss=3.152
+[batch  200/391] loss=3.135
+[batch  250/391] loss=3.216
+[batch  300/391] loss=3.090
+[batch  350/391] loss=3.170
+Epoch 7: Train loss=3.160, Val loss=3.245, Val ppl=25.649
+[batch    1/391] loss=2.935
+[batch   50/391] loss=3.009
+[batch  100/391] loss=2.950
+[batch  150/391] loss=3.099
+[batch  200/391] loss=3.098
+[batch  250/391] loss=3.002
+[batch  300/391] loss=2.978
+[batch  350/391] loss=2.965
+Epoch 8: Train loss=3.040, Val loss=3.166, Val ppl=23.720
+[batch    1/391] loss=2.972
+[batch   50/391] loss=2.908
+[batch  100/391] loss=2.959
+[batch  150/391] loss=2.945
+[batch  200/391] loss=2.909
+[batch  250/391] loss=2.923
+[batch  300/391] loss=2.880
+[batch  350/391] loss=2.923
+Epoch 9: Train loss=2.931, Val loss=3.086, Val ppl=21.884
+[batch    1/391] loss=2.862
+[batch   50/391] loss=2.827
+[batch  100/391] loss=2.784
+[batch  150/391] loss=2.898
+[batch  200/391] loss=2.821
+[batch  250/391] loss=2.909
+[batch  300/391] loss=2.851
+[batch  350/391] loss=2.889
+Epoch 10: Train loss=2.838, Val loss=3.023, Val ppl=20.549
+[batch    1/391] loss=2.755
+[batch   50/391] loss=2.794
+[batch  100/391] loss=2.789
+[batch  150/391] loss=2.670
+[batch  200/391] loss=2.731
+[batch  250/391] loss=2.766
+[batch  300/391] loss=2.775
+[batch  350/391] loss=2.884
+Epoch 11: Train loss=2.761, Val loss=2.978, Val ppl=19.650
+[batch    1/391] loss=2.669
+[batch   50/391] loss=2.740
+[batch  100/391] loss=2.664
+[batch  150/391] loss=2.783
+[batch  200/391] loss=2.703
+[batch  250/391] loss=2.709
+[batch  300/391] loss=2.800
+[batch  350/391] loss=2.704
+Epoch 12: Train loss=2.691, Val loss=2.934, Val ppl=18.806
+[batch    1/391] loss=2.560
+[batch   50/391] loss=2.515
+[batch  100/391] loss=2.635
+[batch  150/391] loss=2.700
+[batch  200/391] loss=2.736
+[batch  250/391] loss=2.612
+[batch  300/391] loss=2.708
+[batch  350/391] loss=2.645
+Epoch 13: Train loss=2.630, Val loss=2.908, Val ppl=18.319
+[batch    1/391] loss=2.510
+[batch   50/391] loss=2.479
+[batch  100/391] loss=2.564
+[batch  150/391] loss=2.555
+[batch  200/391] loss=2.543
+[batch  250/391] loss=2.592
+[batch  300/391] loss=2.699
+[batch  350/391] loss=2.630
+Epoch 14: Train loss=2.573, Val loss=2.868, Val ppl=17.599
+[batch    1/391] loss=2.390
+[batch   50/391] loss=2.492
+[batch  100/391] loss=2.521
+[batch  150/391] loss=2.602
+[batch  200/391] loss=2.475
+[batch  250/391] loss=2.583
+[batch  300/391] loss=2.437
+[batch  350/391] loss=2.566
+Epoch 15: Train loss=2.525, Val loss=2.840, Val ppl=17.115
+[LSTM with Attn] Wall-clock training time : 109.66 min
+```
+
+# Transformer
+
+```
+[batch    1/391] loss=6.777
+[batch   50/391] loss=6.067
+[batch  100/391] loss=5.447
+[batch  150/391] loss=5.300
+[batch  200/391] loss=5.038
+[batch  250/391] loss=4.786
+[batch  300/391] loss=4.808
+[batch  350/391] loss=4.646
+Epoch 1: Train loss=5.215, Val loss=4.653, Val ppl=104.847
+[batch    1/391] loss=4.515
+[batch   50/391] loss=4.456
+[batch  100/391] loss=4.384
+[batch  150/391] loss=4.390
+[batch  200/391] loss=4.375
+[batch  250/391] loss=4.329
+[batch  300/391] loss=4.236
+[batch  350/391] loss=4.125
+Epoch 2: Train loss=4.325, Val loss=4.238, Val ppl=69.257
+[batch    1/391] loss=4.039
+[batch   50/391] loss=3.919
+[batch  100/391] loss=3.894
+[batch  150/391] loss=3.871
+[batch  200/391] loss=3.800
+[batch  250/391] loss=3.679
+[batch  300/391] loss=3.704
+[batch  350/391] loss=3.681
+Epoch 3: Train loss=3.792, Val loss=3.821, Val ppl=45.671
+[batch    1/391] loss=3.380
+[batch   50/391] loss=3.461
+[batch  100/391] loss=3.436
+[batch  150/391] loss=3.346
+[batch  200/391] loss=3.324
+[batch  250/391] loss=3.390
+[batch  300/391] loss=3.299
+[batch  350/391] loss=3.222
+Epoch 4: Train loss=3.332, Val loss=3.557, Val ppl=35.051
+[batch    1/391] loss=3.000
+[batch   50/391] loss=2.945
+[batch  100/391] loss=3.112
+[batch  150/391] loss=3.007
+[batch  200/391] loss=2.953
+[batch  250/391] loss=2.980
+[batch  300/391] loss=3.056
+[batch  350/391] loss=3.066
+Epoch 5: Train loss=3.015, Val loss=3.365, Val ppl=28.934
+[batch    1/391] loss=2.790
+[batch   50/391] loss=2.853
+[batch  100/391] loss=2.868
+[batch  150/391] loss=2.778
+[batch  200/391] loss=2.771
+[batch  250/391] loss=2.798
+[batch  300/391] loss=2.864
+[batch  350/391] loss=2.776
+Epoch 6: Train loss=2.799, Val loss=3.275, Val ppl=26.448
+[batch    1/391] loss=2.637
+[batch   50/391] loss=2.563
+[batch  100/391] loss=2.658
+[batch  150/391] loss=2.686
+[batch  200/391] loss=2.640
+[batch  250/391] loss=2.639
+[batch  300/391] loss=2.668
+[batch  350/391] loss=2.759
+Epoch 7: Train loss=2.642, Val loss=3.232, Val ppl=25.327
+[batch    1/391] loss=2.400
+[batch   50/391] loss=2.481
+[batch  100/391] loss=2.555
+[batch  150/391] loss=2.551
+[batch  200/391] loss=2.505
+[batch  250/391] loss=2.534
+[batch  300/391] loss=2.516
+[batch  350/391] loss=2.585
+Epoch 8: Train loss=2.520, Val loss=3.203, Val ppl=24.614
+[batch    1/391] loss=2.362
+[batch   50/391] loss=2.393
+[batch  100/391] loss=2.451
+[batch  150/391] loss=2.370
+[batch  200/391] loss=2.394
+[batch  250/391] loss=2.477
+[batch  300/391] loss=2.399
+[batch  350/391] loss=2.420
+Epoch 9: Train loss=2.419, Val loss=3.203, Val ppl=24.599
+[batch    1/391] loss=2.266
+[batch   50/391] loss=2.308
+[batch  100/391] loss=2.253
+[batch  150/391] loss=2.296
+[batch  200/391] loss=2.378
+[batch  250/391] loss=2.371
+[batch  300/391] loss=2.339
+[batch  350/391] loss=2.321
+Epoch 10: Train loss=2.334, Val loss=3.202, Val ppl=24.587
+[batch    1/391] loss=2.155
+[batch   50/391] loss=2.151
+[batch  100/391] loss=2.267
+[batch  150/391] loss=2.239
+[batch  200/391] loss=2.268
+[batch  250/391] loss=2.290
+[batch  300/391] loss=2.374
+[batch  350/391] loss=2.266
+Epoch 11: Train loss=2.261, Val loss=3.213, Val ppl=24.846
+[batch    1/391] loss=2.069
+[batch   50/391] loss=2.100
+[batch  100/391] loss=2.211
+[batch  150/391] loss=2.152
+[batch  200/391] loss=2.207
+[batch  250/391] loss=2.166
+[batch  300/391] loss=2.262
+[batch  350/391] loss=2.217
+Epoch 12: Train loss=2.196, Val loss=3.223, Val ppl=25.107
+[batch    1/391] loss=2.062
+[batch   50/391] loss=2.018
+[batch  100/391] loss=2.123
+[batch  150/391] loss=2.124
+[batch  200/391] loss=2.159
+[batch  250/391] loss=2.138
+[batch  300/391] loss=2.183
+[batch  350/391] loss=2.182
+Epoch 13: Train loss=2.140, Val loss=3.248, Val ppl=25.730
+[batch    1/391] loss=2.026
+[batch   50/391] loss=2.031
+[batch  100/391] loss=2.093
+[batch  150/391] loss=2.118
+[batch  200/391] loss=2.089
+[batch  250/391] loss=2.137
+[batch  300/391] loss=2.117
+[batch  350/391] loss=2.177
+Epoch 14: Train loss=2.089, Val loss=3.245, Val ppl=25.664
+[batch    1/391] loss=1.951
+[batch   50/391] loss=1.944
+[batch  100/391] loss=1.981
+[batch  150/391] loss=2.037
+[batch  200/391] loss=2.075
+[batch  250/391] loss=2.120
+[batch  300/391] loss=2.058
+[batch  350/391] loss=2.088
+Epoch 15: Train loss=2.043, Val loss=3.266, Val ppl=26.206
+[Transformer] Wall-clock training time :  47.83 min
+```
